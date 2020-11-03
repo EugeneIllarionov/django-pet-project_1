@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <form method="POST" class="post-form">
+        {% csrf_token %}
+{% for field in form %}
+    <div>
+        {{ field.label }}{{ field }}{{ field.help_text }} {% if field.errors %} {{field.errors}} {% endif %}
+    </div>
+    {% endfor %}
+
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+{% endblock %}
